@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 
 import LanguageSelector from './components/LanguageSelector';
 import Progress from './components/Progress';
+import './App.css';
 
 function App() {
   // Model loading
@@ -92,7 +93,7 @@ function App() {
           <LanguageSelector
             type={'Target'}
             defaultLanguage={'fra_Latn'}
-            onChange={(e) => setSourceLanguage(e.target.value)}
+            onChange={(e) => setTargetLanguage(e.target.value)}
           />
         </div>
 
