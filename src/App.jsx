@@ -29,10 +29,13 @@ function App() {
       const { status } = e.data;
       switch (status) {
         case 'initiate':
+          // console.log('initiate', e.data);
           setReady(false);
           setProgressItems((prev) => [...prev, e.data]);
           break;
         case 'progress':
+          // console.log('progress', e.data);
+
           setProgressItems((prev) =>
             prev.map((item) => {
               if (item.file === e.data.file) {
@@ -43,11 +46,16 @@ function App() {
           );
           break;
         case 'done':
+          // console.log('done', e.data);
+
           setProgressItems((prev) =>
             prev.filter((item) => item.file !== e.data.file)
           );
           break;
+
         case 'ready':
+          // console.log('ready', e.data);
+
           setReady(true);
           break;
         case 'update':
