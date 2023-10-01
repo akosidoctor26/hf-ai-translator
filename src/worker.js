@@ -5,9 +5,9 @@ class MyTranslationPipeline {
   static model = 'Xenova/nllb-200-distilled-600M';
   static instance = null;
 
-  static async getInstance(porgress_callback = null) {
+  static async getInstance(progress_callback = null) {
     if (!this.instance) {
-      this.instance = pipeline(this.task, this.model, porgress_callback);
+      this.instance = pipeline(this.task, this.model, { progress_callback });
     }
 
     return this.instance;
@@ -16,9 +16,9 @@ class MyTranslationPipeline {
 
 self.addEventListener('message', async (event) => {
   const { tgt_lang, src_lang, text } = event.data;
-  let translator = await MyTranslationPipeline.getInstance((x) =>
-    self.postMessage(x)
-  );
+  let translator = await MyTranslationPipeline.getInstance((x) => {
+    self.postMessage(x);
+  });
 
   let output = await translator(text, {
     src_lang,
