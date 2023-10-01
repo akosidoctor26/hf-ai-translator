@@ -20,9 +20,12 @@ function App() {
 
   useEffect(() => {
     if (!worker.current) {
-      worker.current = new Worker(new URL('./worker.js', import.meta.url), {
-        type: 'module',
-      });
+      worker.current = new Worker(
+        new URL('./workers/translate.worker.js', import.meta.url),
+        {
+          type: 'module',
+        }
+      );
     }
 
     const onMessageReceived = (e) => {
