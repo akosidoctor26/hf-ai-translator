@@ -1,3 +1,12 @@
+export const MessageTypes = {
+  DOWNLOADING: 'DOWNLOADING',
+  LOADING: 'LOADING',
+  RESULT: 'RESULT',
+  RESULT_PARTIAL: 'RESULT_PARTIAL',
+  INFERENCE_REQUEST: 'INFERENCE_REQUEST',
+  INFERENCE_DONE: 'INFERENCE_DONE',
+};
+
 export const LANGUAGES = {
   'Acehnese (Arabic script)': 'ace_Arab',
   'Acehnese (Latin script)': 'ace_Latn',
